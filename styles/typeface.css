@@ -1,0 +1,58 @@
+@tailwind components;
+
+@layer components {
+	.text-heading-1 {
+		font-weight: 700;
+		font-size: 30px;
+	}
+	
+	.text-heading-2 {
+		font-weight: 700;
+		font-size: 24px;
+	}
+	
+	.text-heading-3 {
+		font-weight: 700;
+		font-size: 20px;
+	}
+	
+	.text-BoldBodyText_18 {
+		font-weight: 700;
+		font-size: 18px;
+	}
+	
+	.text-BodyTextRegular_18 {
+		font-weight: 500;
+		font-size: 18px;
+	}
+	
+	.text-BodyText_18 {
+		font-weight: 600;
+		font-size: 18px;
+	}
+	
+	.text-BoldBodyText_16 {
+		font-weight: 700;
+		font-size: 16px;
+	}
+	
+	.text-BodyText_16 {
+		font-weight: 600;
+		font-size: 16px;
+	}
+	
+	.text-BoldBodyText_14 {
+		font-weight: 700;
+		font-size: 14px;
+	}
+	
+	.text-BodyText_14 {
+		font-weight: 600;
+		font-size: 14px;
+	}
+	
+	.text-BodyText_12 {
+		font-weight: 600;
+		font-size: 12px;
+	}
+}
