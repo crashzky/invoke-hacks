@@ -1,3 +1,5 @@
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+
 module.exports = {
 	stories: [
 		'../stories/**/*.stories.mdx',
@@ -9,25 +11,27 @@ module.exports = {
 		{
 			name: '@storybook/addon-postcss',
 			options: {
-			  postcssLoaderOptions: {
-				implementation: require('postcss'),
-			  },
+				postcssLoaderOptions: {
+					implementation: require('postcss'),
+				},
 			},
 		},
 	],
 	core: {
 		builder: 'webpack5'
 	},
-	webpackFinal: config => { 
+	webpackFinal: config => {
 		const fileLoaderRule = config.module.rules.find(rule => rule.test && rule.test.test('.svg'));
-		fileLoaderRule.exclude = /\.svg$/;  
-		
+		fileLoaderRule.exclude = /\.svg$/;
+
 		config.module.rules.push({
 			test: /\.svg$/,
 			enforce: 'pre',
 			loader: require.resolve('@svgr/webpack'),
 		});
-		
+
+		config.resolve.plugins = [new TsconfigPathsPlugin()];
+
 		return config;
-	} 
+	},
 }
