@@ -7,17 +7,27 @@ const Input: React.FC<Props> = ({ className = '', errorMessage, placeholder, val
 
 	const inputRef = useRef() as MutableRefObject<HTMLInputElement>; 
 
+	function getBorder() {
+		if(isFocused)
+			return 'border-primary';
+		else if(errorMessage)
+			return 'border-red';
+		else
+			return 'border-lightGrey';
+	}
+
 	return (
 		<>
 			<div
-				className={className + ' h-14 px-4 border-[1px] rounded-2xl ' + (errorMessage ? 'border-red' : 'border-lightGrey')}
+				className={className + ' h-14 px-4 border-[1px] rounded-2xl ' + getBorder()}
 				onClick={() => {
 					setIsFocused(true);
 					inputRef.current?.click();
 					inputRef.current?.focus();
 				}}
 			>
-				<p className={'font-semibold text-darkGrey transition-all duration-100 ' + (isFocused || value ? ' text-xs pt-[10px]' : 'pt-4')}>
+				<p className={'font-semibold text-darkGrey transition-all duration-100 '
+					+ (isFocused || value ? ' text-xs pt-[10px]' : 'pt-4')}>
 					{placeholder}
 				</p>
 				<input

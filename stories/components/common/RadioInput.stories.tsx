@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import RadioInput from '@components/common/RadioInput';
 
 export default {
-	title: 'Components/RadioInput',
+	title: 'Components/Common/RadioInput',
 	component: RadioInput,
 } as ComponentMeta<typeof RadioInput>;
 

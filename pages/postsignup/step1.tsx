@@ -11,6 +11,7 @@ import Select from '@components/common/Select';
 import PostSignupLayout from '@layouts/PostSignupLayout';
 
 import Regions from '@/data/regions.json';
+import DatePicker from '@/components/common/DatePicker';
 
 interface IFormik {
 	name: string;
@@ -35,7 +36,7 @@ const PostSignupPage1 = (): JSX.Element => {
 			name: Yup.string().required('Это обязательное поле'),
 			surname: Yup.string().required('Это обязательное поле'),
 			birthday: Yup.date().required('Это обязательное поле'),
-			city: Yup.string().required('Это обязательное поле'),
+			city: Yup.object().required('Это обязательное поле'),
 			contact: Yup.string().required('Это обязательное поле'),
 		}),
 		onSubmit: () => undefined,
@@ -64,35 +65,18 @@ const PostSignupPage1 = (): JSX.Element => {
 						onChange={formik.handleChange}
 						value={formik.values.surname}
 						errorMessage={formik.submitCount ? formik.errors.surname : undefined} />
-					<div className='relative'>
-						<Input
-							onClick={() => setShowCalendar((prev) => !prev)}
-							className={'w-full ' + (formik.submitCount && formik.errors.birthday ? 'mb-4' : '')}
-							placeholder='Дата рождения'
-							value={formik.values.birthday && format(formik.values.birthday, 'dd.MM.yyyy')}
-							onChange={(e) => {
-								e.target.value = '';
-							}}
-							errorMessage={formik.submitCount ? formik.errors.birthday : undefined} />
-						{showCalendar && (
-							<Calendar
-								color='#336BEA'
-								className='absolute right-0 top-10 z-10'
-								locale={ru}
-								onChange={(date) => {
-									setShowCalendar(false);
-									formik.setFieldValue('birthday', date);
-								}}
-								date={formik.values.birthday} />
-						)}
-					</div>
+					<DatePicker
+						placeholder='Дата рождения'
+						onChange={(date) => formik.setFieldValue('birthday', date)}
+						errorMessage={formik.submitCount ? formik.errors.birthday : undefined}
+						value={formik.values.birthday} />
 					<Select
 						errorMessage={formik.submitCount ? formik.errors.city : ''}
 						isLazyLoad
 						results={10}
 						placeholder='Город'
 						noOptionsMessage={() => 'Ничего не найдено -_-'}
-						value={formik.values.city ? formik.values.city : undefined}
+						value={formik.values.city || undefined}
 						onChange={(value) => formik.setFieldValue('city', value)}
 						options={Regions.map((i) => ({ value: i.city, label: i.city }))} />
 					<Input

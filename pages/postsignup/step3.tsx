@@ -29,8 +29,7 @@ const PostSignupPage3 = (): JSX.Element => {
 			lifeGoal: '',
 		},
 		validationSchema: Yup.object({}).shape({
-			bio: Yup.string().required(),
-			lifeGoal: Yup.string().required(),
+			bio: Yup.string().required('Это обязательное поле'),
 		}),
 		onSubmit: () => undefined,
 	})

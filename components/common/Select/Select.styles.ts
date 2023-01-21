@@ -2,8 +2,10 @@ import { StylesConfig } from 'react-select';
 import { ISelectOption } from './Select.props';
 
 function getStyles(isDanger: boolean): StylesConfig {
-	function getBorder() {
-		if(isDanger)
+	function getBorder(isFocused: boolean) {
+		if(isFocused)
+			return '1px solid #336BEA';
+		else if(isDanger)
 			return '1px solid #FF0066';
 		else
 			return '1px solid #EEEEEE';
@@ -15,7 +17,7 @@ function getStyles(isDanger: boolean): StylesConfig {
 			height: '58px',
 			cursor: 'pointer',
 			borderRadius: '16px',
-			border: getBorder(),
+			border: getBorder(state.isFocused),
 			borderColor: 'none',
 			boxShadow: 'none',
 			'&:hover': {
@@ -50,7 +52,7 @@ function getStyles(isDanger: boolean): StylesConfig {
 			borderRadius: '15px',
 			marginTop: '10px',
 			boxShadow: 'none',
-			border: getBorder(),
+			border: '1px solid #EEEEEE',
 			padding: '0 15px',
 		}),
 		menuList: (provided) => ({

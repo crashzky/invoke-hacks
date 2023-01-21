@@ -20,7 +20,7 @@ const PostSignupPage2 = (): JSX.Element => {
 			skills: [],
 		},
 		validationSchema: Yup.object({}).shape({
-			specialization: Yup.string().required(),
+			specialization: Yup.object().required('Это обязательное поле'),
 		}),
 		onSubmit: () => undefined,
 	})
@@ -40,7 +40,10 @@ const PostSignupPage2 = (): JSX.Element => {
 						isLazyLoad
 						placeholder='Специализация'
 						noOptionsMessage={() => 'Ничего не найдено -_-'}
-						options={Professions.map((i) => ({ value: i, label: i }))} />
+						options={Professions.map((i) => ({ value: i, label: i }))}
+						value={formik.values.specialization}
+						onChange={(newValue) => formik.setFieldValue('specialization', newValue)}
+						errorMessage={formik.submitCount ? formik.errors.specialization : undefined} />
 					<TagsPeeker 
 						tags={formik.values.skills} 
 						placeholder='Скиллы'
