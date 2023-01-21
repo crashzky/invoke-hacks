@@ -32,11 +32,11 @@ const PostSignupPage1 = (): JSX.Element => {
 			contact: '',
 		},
 		validationSchema: Yup.object({}).shape({
-			name: Yup.string().required(),
-			surname: Yup.string().required(),
-			birthday: Yup.date().required(),
-			city: Yup.string().required(),
-			contact: Yup.string().required(),
+			name: Yup.string().required('Это обязательное поле'),
+			surname: Yup.string().required('Это обязательное поле'),
+			birthday: Yup.date().required('Это обязательное поле'),
+			city: Yup.string().required('Это обязательное поле'),
+			contact: Yup.string().required('Это обязательное поле'),
 		}),
 		onSubmit: () => undefined,
 	})
@@ -66,7 +66,7 @@ const PostSignupPage1 = (): JSX.Element => {
 					<div className='relative'>
 						<Input
 							onClick={() => setShowCalendar((prev) => !prev)}
-							className='w-full'
+							className={'w-full ' + (formik.submitCount && formik.errors.birthday ? 'mb-4' : '')}
 							placeholder='Дата рождения'
 							value={formik.values.birthday && format(formik.values.birthday, 'dd.MM.yyyy')}
 							onChange={(e) => {
@@ -86,10 +86,13 @@ const PostSignupPage1 = (): JSX.Element => {
 						)}
 					</div>
 					<Select
+						errorMessage={formik.submitCount ? formik.errors.city : ''}
 						isLazyLoad
 						results={10}
 						placeholder='Город'
 						noOptionsMessage={() => 'Ничего не найдено -_-'}
+						value={formik.values.city ? { value: formik.values.city, label: formik.values.city } : undefined}
+						onChange={(value) => formik.setFieldValue('city', value)}
 						options={Regions.map((i) => ({ value: i.city, label: i.city }))} />
 					<Input
 						placeholder='Контакт, ник в Telegram @'

@@ -6,7 +6,7 @@ interface ISelectOption {
 }
 
 interface Props {
-	dangerMessage?: string;
+	errorMessage?: string;
 	defaultInputValue?: string;
 	defaultMenuIsOpen?: boolean;
 	defaultValue?: ISelectOption;
