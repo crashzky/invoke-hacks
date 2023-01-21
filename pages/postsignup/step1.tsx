@@ -42,11 +42,12 @@ const PostSignupPage1 = (): JSX.Element => {
 	})
 
 	return (
-		<PostSignupLayout activeStep={0} onSkip={() => undefined}>
+		<PostSignupLayout
+			activeStep={0} 
+			onSkip={() => undefined}
+			onRouteBack={() => undefined}
+		>
 			<div className='mt-10 px-28'>
-				<p className='font-semibold text-primary'>
-					Шаг 1/3
-				</p>
 				<h1 className='text-heading-1 mt-3'>
 					Основные данные
 				</h1>

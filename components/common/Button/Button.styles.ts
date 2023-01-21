@@ -32,6 +32,8 @@ function getButtonStyles(color: buttonColors, variant: buttonVariants) {
 			return `${COMMON_STYLES} ${borderColor} border-2 `;
 		case 'text':
 			return `${COMMON_STYLES} ${textColor} `;
+		case 'icon':
+			return `${bgColor} p-1 rounded-lg inline-block `;
 	}
 }
 
