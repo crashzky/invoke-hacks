@@ -98,7 +98,12 @@ const PostSignupPage1 = (): JSX.Element => {
 					<Input
 						placeholder='Контакт, ник в Telegram @'
 						name='contact'
-						onChange={formik.handleChange}
+						onChange={(e) => {
+							if (e.target.value.length === 1 && e.target.value != '@')
+								formik.setFieldValue('contact', `@${e.target.value}`)
+							else
+								formik.handleChange(e)
+						}}
 						value={formik.values.contact}
 						errorMessage={formik.submitCount ? formik.errors.contact : undefined}  />
 					<Button variant='filled' color='black'>
