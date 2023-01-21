@@ -1,17 +1,18 @@
 import Props from './LoginLayout.props';
 
 import RecIcon from '@assets/rec.svg';
+import Link from 'next/link';
 
 const LoginLayout: React.FC<Props> = ({ children, className = '', ...props }) => {
 	return (
 		<section className={className + ' grid grid-cols-2'} {...props}>
 			<div className='pl-28 pt-16'>
-				<p className='font-bold text-2xl'>
+				<Link className='font-bold text-2xl' href='/'>
 					Invoke
 					<span className='text-primary'>
 						.teams
 					</span>
-				</p>
+				</Link>
 				<div>
 					{children}
 				</div>

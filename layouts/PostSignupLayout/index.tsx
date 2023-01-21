@@ -1,16 +1,17 @@
 import Steps from '@components/common/Steps';
+import Link from 'next/link';
 import Props from './PostSignupLayot.props';
 
 const PostSignupLayout: React.FC<Props> = ({ children, activeStep, onSkip }) => {
 	return (
 		<>
 			<header className='px-28 py-12 flex justify-between items-center'>
-				<p className='font-bold text-2xl'>
+				<Link className='font-bold text-2xl' href='/'>
 					Invoke
 					<span className='text-primary'>
 						.teams
 					</span>
-				</p>
+				</Link>
 				<Steps
 					steps={['Основные данные', 'Специализация', 'Интересы']}
 					activeStep={activeStep} />

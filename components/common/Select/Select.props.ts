@@ -6,7 +6,7 @@ interface ISelectOption {
 }
 
 interface Props {
-	isDanger?: boolean;
+	dangerMessage?: string;
 	defaultInputValue?: string;
 	defaultMenuIsOpen?: boolean;
 	defaultValue?: ISelectOption;
@@ -34,6 +34,7 @@ interface Props {
 	isLazyLoad?: boolean;
 	value?: ISelectOption;
     className?: string;
+	results?: number;
 }
 
 export default Props;

@@ -23,8 +23,6 @@ interface IFormik {
 const PostSignupPage1 = (): JSX.Element => {
 	const [showCalendar, setShowCalendar] = useState(false);
 
-	console.log(Regions);
-
 	const formik = useFormik<IFormik>({
 		initialValues: {
 			name: '',
@@ -89,6 +87,7 @@ const PostSignupPage1 = (): JSX.Element => {
 					</div>
 					<Select
 						isLazyLoad
+						results={10}
 						placeholder='Город'
 						noOptionsMessage={() => 'Ничего не найдено -_-'}
 						options={Regions.map((i) => ({ value: i.city, label: i.city }))} />
