@@ -32,7 +32,7 @@ interface Props {
 	onMenuScrollToTop?: (e: any) => void;
 	onMenuScrollToBottom?: (e: any) => void;
 	isLazyLoad?: boolean;
-	value?: ISelectOption;
+	value?: string;
     className?: string;
 	results?: number;
 }

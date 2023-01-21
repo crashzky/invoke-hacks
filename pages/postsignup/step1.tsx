@@ -92,7 +92,7 @@ const PostSignupPage1 = (): JSX.Element => {
 						results={10}
 						placeholder='Город'
 						noOptionsMessage={() => 'Ничего не найдено -_-'}
-						value={formik.values.city ? { value: formik.values.city, label: formik.values.city } : undefined}
+						value={formik.values.city ? formik.values.city : undefined}
 						onChange={(value) => formik.setFieldValue('city', value)}
 						options={Regions.map((i) => ({ value: i.city, label: i.city }))} />
 					<Input
