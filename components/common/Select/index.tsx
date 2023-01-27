@@ -3,7 +3,8 @@ import ReactSelect from './import';
 import Props from './Select.props';
 import getStyles from './Select.styles';
 
-const Select: React.FC<Props> = ({ onInputChange, isLazyLoad, onChange = () => undefined, errorMessage, options, results, ...props }) => {
+const Select: React.FC<Props> = ({ onInputChange, isLazyLoad, onChange = () => undefined, errorMessage, options,
+	results, ...props }) => {
 	const [lastTimeout, setLastTimeout] = useState<any>();
 	const [searchValue, setSearchValue] = useState('');
 
@@ -11,8 +12,8 @@ const Select: React.FC<Props> = ({ onInputChange, isLazyLoad, onChange = () => u
 		<>
 			<ReactSelect
 				options={results
-						? options?.filter((i) => i.label.toLowerCase().startsWith(searchValue.toLowerCase()))?.slice(0, results)
-						: options}
+					? options?.filter((i) => i.label.toLowerCase().startsWith(searchValue.toLowerCase()))?.slice(0, results)
+					: options}
 				styles={getStyles(!!errorMessage)}
 				onChange={(e) => {
 					if(onInputChange && isLazyLoad) {

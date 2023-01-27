@@ -11,7 +11,7 @@ const TagCard: React.FC<Props> = ({ tagName, onDeleteTag, ...props }) => {
 				<CrossIcon />
 			</button>
 		</div>
-	)
+	);
 };
 
 export default TagCard;

@@ -2,7 +2,7 @@ import { buttonColors, buttonVariants } from './Button.props';
 
 const COMMON_STYLES = 'rounded-2xl h-[58px] text-center text-BoldBodyText_16';
 
-function getButtonStyles(color: buttonColors, variant: buttonVariants) {
+function getButtonStyles(color: buttonColors, variant: buttonVariants): string {
 	let bgColor = '';
 	let borderColor = '';
 	let textColor = '';

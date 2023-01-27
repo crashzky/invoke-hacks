@@ -34,8 +34,6 @@ const SignupPage = (): JSX.Element => {
 		onSubmit: () => undefined,
 	});
 
-	console.log(formik.values);
-
 	return (
 		<LoginLayout>
 			<h1 className='text-heading-1 mt-28'>

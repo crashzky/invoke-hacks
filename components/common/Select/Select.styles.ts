@@ -1,5 +1,4 @@
 import { StylesConfig } from 'react-select';
-import { ISelectOption } from './Select.props';
 
 function getStyles(isDanger: boolean): StylesConfig {
 	function getBorder(isFocused: boolean) {

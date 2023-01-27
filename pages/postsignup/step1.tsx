@@ -1,8 +1,5 @@
 import { useState } from 'react';
-import { Calendar } from 'react-date-range';
-import { ru } from 'date-fns/locale';
 import { useFormik } from 'formik';
-import { format } from 'date-fns'; 
 import * as Yup from 'yup';
 
 import Button from '@components/common/Button';

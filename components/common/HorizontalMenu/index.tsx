@@ -10,7 +10,7 @@ const HorizontalMenu: React.FC<Props> = ({ className = '', items, ...props }) =>
 	items.forEach((i, num) => {
 		if(router.pathname.startsWith(i.link))
 			selectedMenuItem = num;
-	})
+	});
 
 	return (
 		<div className={className + ' flex gap-3 items-center'} {...props}>

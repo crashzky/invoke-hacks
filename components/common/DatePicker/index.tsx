@@ -25,7 +25,8 @@ const DatePicker: React.FC<Props> = ({ className = '', value, errorMessage, plac
 					onClick={() => setShowCalendar((prev) => !prev)}
 				>
 					<p className={'font-semibold text-darkGrey transition-all duration-100 text-start '
-						+ (value ? ' text-xs pt-[10px]' : 'pt-0')}>
+						+ (value ? ' text-xs pt-[10px]' : 'pt-0')}
+					>
 						{placeholder}
 					</p>
 					<p className='font-medium text-start'>

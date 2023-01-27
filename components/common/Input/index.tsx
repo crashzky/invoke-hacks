@@ -27,7 +27,8 @@ const Input: React.FC<Props> = ({ className = '', errorMessage, placeholder, val
 				}}
 			>
 				<p className={'font-semibold text-darkGrey transition-all duration-100 '
-					+ (isFocused || value ? ' text-xs pt-[10px]' : 'pt-4')}>
+					+ (isFocused || value ? ' text-xs pt-[10px]' : 'pt-4')}
+				>
 					{placeholder}
 				</p>
 				<input

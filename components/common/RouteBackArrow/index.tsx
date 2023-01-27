@@ -1,6 +1,5 @@
 import Props from './RouteBackArrow.props';
 import ArrowLeft from '@assets/ic_arrowleft.svg';
-import Button from '../Button';
 
 const RouteBackArrow: React.FC<Props> = ({ onRouteBack, routeBackTitle, ...props }) => {
 	return (
@@ -13,8 +12,7 @@ const RouteBackArrow: React.FC<Props> = ({ onRouteBack, routeBackTitle, ...props
 				{routeBackTitle}
 			</p>
 		</button>
-	)
+	);
 };
-
 
 export default RouteBackArrow;

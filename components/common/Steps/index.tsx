@@ -1,9 +1,6 @@
-import { useRouter } from 'next/router';
 import Props from './Steps.props';
 
-const Steps: React.FC<Props> = ({ className = '', steps, activeStep, onChangeStep, ...props }) => {
-	const router = useRouter();
-	
+const Steps: React.FC<Props> = ({ className = '', steps, activeStep, onChangeStep, ...props }) => {	
 	return (
 		<div className={className + ' flex items-center gap-[18px]'} {...props}>
 			{steps.map((i, num) => (
@@ -14,7 +11,8 @@ const Steps: React.FC<Props> = ({ className = '', steps, activeStep, onChangeSte
 						className='grid grid-cols-[28px_1fr] gap-[10px] items-center'
 					>
 						<div className={'bg-lightGrey rounded-full pt-1 text-center font-bold '
-							+ (num !== activeStep ? 'text-grey' : 'text-primary')}>
+							+ (num !== activeStep ? 'text-grey' : 'text-primary')}
+						>
 							{num + 1}
 						</div>
 						<p className={'text-BoldBodyText_14 ' + (num !== activeStep && 'text-grey')}>
