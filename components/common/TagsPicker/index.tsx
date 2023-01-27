@@ -5,7 +5,7 @@ import PlusIcon from '@assets/ic_plus.svg';
 import { useState } from 'react';
 import TagCard from '../TagCard';
 
-const TagsPeeker: React.FC<Props> = ({ tags, setTags, placeholder, onDeleteTag, ...props }) => {
+const TagsPicker: React.FC<Props> = ({ tags, setTags, placeholder, onDeleteTag, ...props }) => {
 	const [inputValue, setInputValue] = useState('');
 
 	return (
@@ -23,8 +23,8 @@ const TagsPeeker: React.FC<Props> = ({ tags, setTags, placeholder, onDeleteTag, 
 					className='w-16 items-center justify-center flex rounded-[16px]'
 					onClick={() => {
 						if (inputValue) {
-							setTags(inputValue)
-							setInputValue('')
+							setTags(inputValue);
+							setInputValue('');
 						}
 					}}
 				>
@@ -41,7 +41,7 @@ const TagsPeeker: React.FC<Props> = ({ tags, setTags, placeholder, onDeleteTag, 
 				))}
 			</div>
 		</div>
-	)
+	);
 };
 
-export default TagsPeeker;
+export default TagsPicker;

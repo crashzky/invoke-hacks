@@ -1,24 +1,20 @@
 import Props from './LoginLayout.props';
+import Logo from '@components/common/Logo';
 
 import RecIcon from '@assets/rec.svg';
-import Link from 'next/link';
 
 const LoginLayout: React.FC<Props> = ({ children, className = '', ...props }) => {
 	return (
 		<section className={className + ' grid grid-cols-2'} {...props}>
 			<div className='pl-28 pt-16'>
-				<Link className='font-bold text-2xl' href='/'>
-					Invoke
-					<span className='text-primary'>
-						.teams
-					</span>
-				</Link>
+				<Logo />
 				<div>
 					{children}
 				</div>
 			</div>
 			<div className={`h-screen flex items-center justify-center
-				bg-[linear-gradient(173.89deg,rgba(79,158,253,0.8)_34.8%,rgba(22,53,214,0.8)_90.32%)]`}>
+				bg-[linear-gradient(173.89deg,rgba(79,158,253,0.8)_34.8%,rgba(22,53,214,0.8)_90.32%)]`}
+			>
 				<div className='w-[530px] h-[530px] pt-28 px-12 bg-white bg-opacity-20 backdrop-blur-[50px]'>
 					<p className='font-bold text-[46px] text-white mb-6'>
 						<RecIcon className='inline mr-3 mb-2' />

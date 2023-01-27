@@ -9,7 +9,7 @@ const Logo: React.FC<Props> = () => {
 				.teams
 			</span>
 		</Link>
-	)
-}
+	);
+};
 
 export default Logo;

@@ -22,5 +22,5 @@ Primary.args = {
 			id: 'company',
 			label: 'Компания',
 		},
-	]
+	],
 };

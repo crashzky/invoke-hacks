@@ -6,7 +6,7 @@ import Select from '@components/common/Select';
 import PostSignupLayout from '@layouts/PostSignupLayout';
 
 import Professions from '@/data/professions.json';
-import TagsPeeker from '@/components/common/TagsPeeker';
+import TagsPicker from '@/components/common/TagsPicker';
 
 interface IFormik {
 	specialization: string;
@@ -23,7 +23,7 @@ const PostSignupPage2 = (): JSX.Element => {
 			specialization: Yup.object().required('Это обязательное поле'),
 		}),
 		onSubmit: () => undefined,
-	})
+	});
 
 	return (
 		<PostSignupLayout 
@@ -44,7 +44,7 @@ const PostSignupPage2 = (): JSX.Element => {
 						value={formik.values.specialization}
 						onChange={(newValue) => formik.setFieldValue('specialization', newValue)}
 						errorMessage={formik.submitCount ? formik.errors.specialization : undefined} />
-					<TagsPeeker 
+					<TagsPicker 
 						tags={formik.values.skills} 
 						placeholder='Скиллы'
 						onDeleteTag={(tagId) => formik.values.skills.splice(tagId, 1)}

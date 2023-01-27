@@ -1,17 +1,10 @@
-import { useState } from 'react';
-import { Calendar } from 'react-date-range';
-import { ru } from 'date-fns/locale';
 import { useFormik } from 'formik';
-import { format } from 'date-fns'; 
 import * as Yup from 'yup';
 
 import Button from '@components/common/Button';
 import Input from '@components/common/Input';
-import Select from '@components/common/Select';
 import PostSignupLayout from '@layouts/PostSignupLayout';
-
-import Regions from '@/data/regions.json';
-import TagsPeeker from '@/components/common/TagsPeeker';
+import TagsPicker from '@/components/common/TagsPicker';
 
 interface IFormik {
 	bio: string;
@@ -20,8 +13,6 @@ interface IFormik {
 }
 
 const PostSignupPage3 = (): JSX.Element => {
-	const [showCalendar, setShowCalendar] = useState(false);
-
 	const formik = useFormik<IFormik>({
 		initialValues: {
 			bio: '',
@@ -32,7 +23,7 @@ const PostSignupPage3 = (): JSX.Element => {
 			bio: Yup.string().required('Это обязательное поле'),
 		}),
 		onSubmit: () => undefined,
-	})
+	});
 
 	return (
 		<PostSignupLayout 
@@ -52,7 +43,7 @@ const PostSignupPage3 = (): JSX.Element => {
 						value={formik.values.bio}
 						errorMessage={formik.submitCount ? formik.errors.bio : undefined} />
 
-					<TagsPeeker
+					<TagsPicker
 						placeholder='Хобби'
 						tags={formik.values.hobbies}
 						onDeleteTag={(tagId) => formik.values.hobbies.splice(tagId, 1)}

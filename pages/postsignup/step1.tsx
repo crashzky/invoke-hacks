@@ -40,7 +40,7 @@ const PostSignupPage1 = (): JSX.Element => {
 			contact: Yup.string().required('Это обязательное поле'),
 		}),
 		onSubmit: () => undefined,
-	})
+	});
 
 	return (
 		<PostSignupLayout
@@ -84,12 +84,12 @@ const PostSignupPage1 = (): JSX.Element => {
 						name='contact'
 						onChange={(e) => {
 							if (e.target.value.length === 1 && e.target.value != '@')
-								formik.setFieldValue('contact', `@${e.target.value}`)
+								formik.setFieldValue('contact', `@${e.target.value}`);
 							else
-								formik.handleChange(e)
+								formik.handleChange(e);
 						}}
 						value={formik.values.contact}
-						errorMessage={formik.submitCount ? formik.errors.contact : undefined}  />
+						errorMessage={formik.submitCount ? formik.errors.contact : undefined} />
 					<Button variant='filled' color='black'>
 						Продолжить
 					</Button>
