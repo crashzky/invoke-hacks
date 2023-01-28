@@ -7,6 +7,7 @@ import Button from '@components/common/Button';
 import Input from '@components/common/Input';
 import RadioInput from '@components/common/RadioInput';
 import LoginLayout from '@layouts/LoginLayout';
+import { useRouter } from 'next/router';
 
 interface IFormik {
 	email: string;
@@ -16,6 +17,8 @@ interface IFormik {
 }
 
 const SignupPage = (): JSX.Element => {
+	const router = useRouter();
+
 	const [password, setPassword] = useState('');
 
 	const formik = useFormik<IFormik>({
@@ -31,7 +34,7 @@ const SignupPage = (): JSX.Element => {
 			password: Yup.string().required('Это обязательное поле'),
 			password2: Yup.string().equals([password], 'Пароли должны совпадать').required('Это обязательное поле'),
 		}),
-		onSubmit: () => undefined,
+		onSubmit: () => router.push('/postsignup/step1'),
 	});
 
 	return (
