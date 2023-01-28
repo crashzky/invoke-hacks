@@ -9,6 +9,7 @@ import PostSignupLayout from '@layouts/PostSignupLayout';
 
 import Regions from '@/data/regions.json';
 import DatePicker from '@/components/common/DatePicker';
+import { useRouter } from 'next/router';
 
 interface IFormik {
 	name: string;
@@ -19,6 +20,8 @@ interface IFormik {
 }
 
 const PostSignupPage1 = (): JSX.Element => {
+	const router = useRouter();
+
 	const [showCalendar, setShowCalendar] = useState(false);
 
 	const formik = useFormik<IFormik>({
@@ -36,7 +39,7 @@ const PostSignupPage1 = (): JSX.Element => {
 			city: Yup.object().required('Это обязательное поле'),
 			contact: Yup.string().required('Это обязательное поле'),
 		}),
-		onSubmit: () => undefined,
+		onSubmit: () => router.push('/postsignup/step2'),
 	});
 
 	return (

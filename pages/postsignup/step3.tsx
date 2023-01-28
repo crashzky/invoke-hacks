@@ -22,7 +22,7 @@ const PostSignupPage3 = (): JSX.Element => {
 		validationSchema: Yup.object({}).shape({
 			bio: Yup.string().required('Это обязательное поле'),
 		}),
-		onSubmit: () => undefined,
+		onSubmit: () => window.location = 'https://invoke.one/' as any,
 	});
 
 	return (

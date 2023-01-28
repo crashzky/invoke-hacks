@@ -7,6 +7,7 @@ import PostSignupLayout from '@layouts/PostSignupLayout';
 
 import Professions from '@/data/professions.json';
 import TagsPicker from '@/components/common/TagsPicker';
+import { useRouter } from 'next/router';
 
 interface IFormik {
 	specialization: string;
@@ -14,6 +15,8 @@ interface IFormik {
 }
 
 const PostSignupPage2 = (): JSX.Element => {
+	const router = useRouter();
+	
 	const formik = useFormik<IFormik>({
 		initialValues: {
 			specialization: '',
@@ -22,7 +25,7 @@ const PostSignupPage2 = (): JSX.Element => {
 		validationSchema: Yup.object({}).shape({
 			specialization: Yup.object().required('Это обязательное поле'),
 		}),
-		onSubmit: () => undefined,
+		onSubmit: () => router.push('/postsignup/step3'),
 	});
 
 	return (
